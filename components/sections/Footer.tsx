@@ -1,19 +1,30 @@
-// components/Footer.tsx
-"use client"
-import React from 'react';
-import { motion } from 'framer-motion';
-import { FaGithub, FaLinkedin, FaInstagram, FaTwitter, FaEnvelope } from 'react-icons/fa';
-import { useMediaQuery } from '@/hooks/use-media-query';
+"use client";
+import React from "react";
+import { motion } from "framer-motion";
+import {
+  FaGithub,
+  FaLinkedin,
+  FaInstagram,
+  FaTwitter,
+  FaEnvelope,
+  FaGlobe,
+} from "react-icons/fa";
+import { useMediaQuery } from "@/hooks/use-media-query";
 
 const Footer: React.FC = () => {
-  const isMobile = useMediaQuery('(max-width: 768px)');
+  const isMobile = useMediaQuery("(max-width: 768px)");
 
   const socialLinks = [
-    { icon: FaGithub, href: 'https://github.com/krishnavalliappan' },
-    { icon: FaLinkedin, href: 'https://www.linkedin.com/in/krishnavalliappan/' },
-    { icon: FaInstagram, href: 'https://www.instagram.com/_krishnav24/' },
-    { icon: FaTwitter, href: 'https://x.com/krish_kumar2498' },
-    { icon: FaEnvelope, href: 'mailto:krishnavalliappan02@gmail.com' },
+    { icon: FaGithub, href: "https://github.com/Avanaganti-Saichand" },
+    {
+      icon: FaLinkedin,
+      href: "https://www.linkedin.com/in/saichand-avanaganti-1b51401a4/",
+    },
+    {
+      icon: FaInstagram,
+      href: "https://www.instagram.com/saichand_avanaganti/",
+    },
+    { icon: FaEnvelope, href: "mailto:saichand.avanaganti@slu.edu" },
   ];
 
   return (
@@ -48,14 +59,11 @@ const Footer: React.FC = () => {
           transition={{ delay: 0.2, duration: 0.5 }}
         >
           <p className="text-lg font-mono">
-            Designed & Built by{' '}
-            <span className="text-primary font-bold">
-              Krishnakumar
-            </span>{' '}
-            <span className="animate-pulse inline-block">🚀</span>
+            Designed & Built by{" "}
+            <span className="text-primary font-bold">Saichand Avanaganti</span>{" "}
           </p>
           <p className="mt-2 text-sm">
-            Powered by coffee, curiosity, and a dash of nerdy enthusiasm!
+            Fueled by innovation, code, and strong black coffee.
           </p>
         </motion.div>
       </div>

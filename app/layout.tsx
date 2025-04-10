@@ -7,11 +7,12 @@ import { FloatingNav } from "@/components/ui/FloatingNavbar";
 import { FaHome, FaUser, FaBriefcase, FaCode } from "react-icons/fa";
 import StickyIcons from "@/components/sections/StickyIcons";
 import Footer from "@/components/sections/Footer";
-import { Analytics } from "@vercel/analytics/react"
+import { Analytics } from "@vercel/analytics/react";
 
-export const metadata = {
-  title: "Krishnakumar",
-  description: "Personal portfolio of Krishnakumar",
+export const metadata: Metadata = {
+  title: "Saichand Avanaganti",
+  description:
+    "Portfolio of Saichand Avanaganti – Mobile & Full-Stack Developer",
 };
 
 const navItems = [
@@ -51,23 +52,16 @@ export default function RootLayout({
           sizes="32x32"
           href="./favicon-32x32.png"
         />
-        <meta property="og:title" content="Krishnakumar's Portfolio" />
+        <meta property="og:title" content="Saichand Avanaganti's Portfolio" />
         <meta
           property="og:description"
-          content="Data analyst with a passion for web development and machine learning. Transforming complex data into actionable insights and building innovative web solutions."
+          content="Mobile and Full-Stack Developer building high-quality cross-platform apps using React Native, Node.js, and TypeScript."
         />
-        <meta property="og:url" content="https://krishnakumar.dev" />
+        <meta property="og:url" content="https://avanasaichand.dev" />
         <meta
           property="og:image"
-          content="https://krishnakumar.dev/pics/web_screenshot.png"
+          content="https://avanasaichand.dev/pics/portfolio_preview.png"
         />
-        <script dangerouslySetInnerHTML={{
-          __html: `
-            if (window.location.href === "https://krishnavalliappan.github.io/portfolio-website/") {
-              window.location.replace("https://www.krishnakumar.dev");
-            }
-          `
-        }} />
         <meta property="og:type" content="website" />
       </head>
       <body

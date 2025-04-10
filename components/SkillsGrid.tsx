@@ -1,19 +1,42 @@
 // components/SkillsGrid.tsx
-import React, { useMemo } from 'react';
-import { motion } from 'framer-motion';
-import { FaPython, FaDatabase, FaChartBar, FaCode, FaReact, FaJs, FaNodeJs, FaGithub } from 'react-icons/fa';
+import React, { useMemo } from "react";
+import { motion } from "framer-motion";
+import {
+  FaPython,
+  FaDatabase,
+  FaChartBar,
+  FaCode,
+  FaReact,
+  FaJs,
+  FaNodeJs,
+  FaGithub,
+} from "react-icons/fa";
 
 const SkillsGrid = () => {
-  const skills = useMemo(() => [
-    { icon: <FaPython />, name: 'Python' },
-    { icon: <FaDatabase />, name: 'SQL' },
-    { icon: <FaChartBar />, name: 'Power BI' },
-    { icon: <FaCode />, name: 'Data Viz' },
-    { icon: <FaJs />, name: 'JavaScript' },
-    { icon: <FaReact />, name: 'React' },
-    { icon: <FaNodeJs />, name: 'Node.js' },
-    { icon: <FaGithub />, name: 'Git' },
-  ], []);
+  const skills = useMemo(
+    () => [
+      { icon: <FaReact />, name: "React Native" },
+      { icon: <FaNodeJs />, name: "Node.js" },
+      { icon: <FaJs />, name: "JavaScript / TypeScript" },
+      { icon: <FaDatabase />, name: "PostgreSQL" },
+      { icon: <FaCode />, name: "WebSockets" },
+      { icon: <FaGithub />, name: "GitHub / Git" },
+      { icon: <FaPython />, name: "Python" },
+      { icon: <FaChartBar />, name: "Firebase / AWS" },
+      { icon: <FaCode />, name: "Socket.IO" },
+      { icon: <FaChartBar />, name: "MongoDB" },
+      { icon: <FaChartBar />, name: "Express.js" },
+      { icon: <FaCode />, name: "REST APIs" },
+      { icon: <FaCode />, name: "JWT Auth" },
+      { icon: <FaCode />, name: "Redux Toolkit" },
+      { icon: <FaChartBar />, name: "Expo" },
+      { icon: <FaCode />, name: "Tailwind CSS" },
+      { icon: <FaCode />, name: "React Native Paper" },
+      { icon: <FaCode />, name: "Reanimated 2" },
+      { icon: <FaCode />, name: "ShadCN-style UI" },
+    ],
+    []
+  );
 
   const skillVariants = {
     hidden: { opacity: 0, y: 20 },
@@ -23,9 +46,9 @@ const SkillsGrid = () => {
       transition: {
         delay: 0.05 * i,
         duration: 0.5,
-        ease: "easeOut"
-      }
-    })
+        ease: "easeOut",
+      },
+    }),
   };
 
   return (
@@ -45,7 +68,9 @@ const SkillsGrid = () => {
           whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
           className="bg-card text-card-foreground rounded-lg p-2 sm:p-3 text-center flex flex-col items-center justify-center"
         >
-          <div className="text-2xl sm:text-3xl mb-1 text-primary">{skill.icon}</div>
+          <div className="text-2xl sm:text-3xl mb-1 text-primary">
+            {skill.icon}
+          </div>
           <p className="text-xs sm:text-sm font-medium">{skill.name}</p>
         </motion.div>
       ))}

@@ -1,8 +1,8 @@
 // components/sections/ActionButtons.tsx
-import React from 'react';
-import { motion } from 'framer-motion';
-import Link from 'next/link';
-import { FaCode, FaFileAlt } from 'react-icons/fa';
+import React from "react";
+import { motion } from "framer-motion";
+import Link from "next/link";
+import { FaCode, FaFileAlt } from "react-icons/fa";
 
 const ActionButtons = () => (
   <motion.div
@@ -20,12 +20,12 @@ const ActionButtons = () => (
         <FaCode className="mr-2" /> About Me
       </motion.button>
     </Link>
-    <Link 
-      href="/pdf/resume.pdf" 
-      target="_blank" 
+    <Link
+      href="/pdf/Avanaganti_Resume.pdf"
+      target="_blank"
       rel="noopener noreferrer"
     >
-      <motion.button 
+      <motion.button
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
         className="bg-secondary text-secondary-foreground px-6 py-3 rounded-full font-semibold transition duration-300 flex items-center"

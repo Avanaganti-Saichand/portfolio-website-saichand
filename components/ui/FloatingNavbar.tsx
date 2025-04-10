@@ -2,36 +2,50 @@
 
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { cn } from "@/utils/cn";
 import Link from "next/link";
+import { cn } from "@/utils/cn";
+
+interface NavItem {
+  name: string;
+  link: string;
+  icon: JSX.Element;
+}
 
 export const FloatingNav = ({
   navItems,
   className,
 }: {
-  navItems: {
-    name: string;
-    link: string;
-    icon: JSX.Element;
-  }[];
+  navItems: NavItem[];
   className?: string;
 }) => {
   const [activeSection, setActiveSection] = useState("");
 
   useEffect(() => {
     const handleScroll = () => {
-      const scrollPosition = window.scrollY;
-      const sections = navItems.map((item) => item.link.slice(1));
+      const scrollPosition = window.scrollY + window.innerHeight / 2;
+      let currentSection = "";
 
-      for (const section of sections) {
-        const element = document.getElementById(section);
-        if (element && scrollPosition >= element.offsetTop - 100) {
-          setActiveSection(section);
+      for (const item of navItems) {
+        const sectionId = item.link.slice(1);
+        const element = document.getElementById(sectionId);
+
+        if (element) {
+          const offsetTop = element.offsetTop;
+          const offsetBottom = offsetTop + element.offsetHeight;
+
+          if (scrollPosition >= offsetTop && scrollPosition < offsetBottom) {
+            currentSection = sectionId;
+            break;
+          }
         }
       }
+
+      setActiveSection(currentSection);
     };
 
     window.addEventListener("scroll", handleScroll);
+    handleScroll(); // Initial highlight on page load
+
     return () => window.removeEventListener("scroll", handleScroll);
   }, [navItems]);
 
@@ -42,7 +56,7 @@ export const FloatingNav = ({
       transition={{ duration: 0.3 }}
       className={cn(
         "fixed top-0 left-0 right-0 bg-background/80 backdrop-blur-md z-50 border-b border-primary/10",
-        "floating-navbar", // Add this class for the fallback styles
+        "floating-navbar",
         className
       )}
     >
@@ -54,10 +68,11 @@ export const FloatingNav = ({
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.2, duration: 0.5 }}
           >
-            <span className="text-primary">krishna</span>
-            <span className="text-foreground">.py</span>
+            <span className="text-primary">saichand</span>
+            <span className="text-foreground">.dev</span>
           </motion.span>
         </Link>
+
         <ul className="flex space-x-1">
           {navItems.map((item, idx) => (
             <React.Fragment key={idx}>

@@ -1,8 +1,16 @@
 // data/workExperience.ts
-import { FaBriefcase, FaPython, FaDatabase, FaChartBar, FaAws, FaReact, FaChalkboardTeacher, } from 'react-icons/fa';
-import { SiPowerbi } from 'react-icons/si';
-import { PiMathOperationsFill } from "react-icons/pi";
-import React from 'react';
+import {
+  FaMobileAlt,
+  FaReact,
+  FaNodeJs,
+  FaLaptopCode,
+  FaCloud,
+  FaBolt,
+  FaChalkboardTeacher,
+  FaBriefcase,
+} from "react-icons/fa";
+import { SiFirebase, SiPostgresql, SiMongodb } from "react-icons/si";
+import React from "react";
 
 export interface Skill {
   name: string;
@@ -20,60 +28,73 @@ export interface WorkExperience {
 }
 
 export const workExperiences: WorkExperience[] = [
-{
-    company: "Concordia University",
-    position: "TA - Transform Calculus and PDE",
-    duration: "Sep 2023 - Dec 2023",
+  {
+    company: "Freelance Projects",
+    position: "Freelance Software Developer",
+    duration: "Aug 2023 – Present",
     year: 2023,
     description: [
-      "Crafted Python simulations to visualize (Fourier Series, Laplace Transforms, PDEs) solutions, enhancing student understanding of the link between theory and real-world applications.",
-      "Facilitated collaborative learning by leading group discussions and encouraging peer support, building a positive and productive learning environment.",
-      "Received excellent student feedback, contributing to a 20% increase in satisfaction ratings compared to previous terms."
+      "Building mobile apps and full-stack solutions that work as hard as you do.",
+      "Collaborated with early-stage founders to rapidly prototype and launch MVPs using React Native and Firebase.",
+      "Developed custom API integrations and admin panels to automate tasks, reduce manual overhead, and make teams say, 'Finally!'",
     ],
     skills: [
-      { name: "Python", icon: FaPython },
-      { name: "Teaching", icon: FaChalkboardTeacher },
-      { name: "Mathematics", icon: PiMathOperationsFill },
+      { name: "React Native", icon: FaReact },
+      { name: "Firebase", icon: SiFirebase },
+      { name: "PostgreSQL", icon: SiPostgresql },
     ],
-    logo: "/logos/concordia-university.png" // Add the path to the Concordia University logo
+    logo: "/logos/freelance.png",
   },
   {
-    company: "IA Flow Elements",
-    position: "Associate Data Analyst",
-    duration: "April 2020 – July 2022",
-    year: 2020,
+    company: "Real Variable Digital Asset Services",
+    position: "Mobile App Developer",
+    duration: "Sep 2021 – July 2023",
+    year: 2021,
     description: [
-      "Engineered a predictive model using machine learning algorithms to forecast sales trends, enhancing decision-making accuracy and contributing to a 15% uplift in sales projections accuracy.",
-      "Boosted data processing efficiency by 40% via custom Python scripts for ETL automation, ensuring precise data handling from extraction to in-depth analysis, integrating with AWS cloud.",
-      "Led the team to optimize data processing workflows by 30% by migrating to AWS, enhancing both data handling efficiency and system scalability while also ensuring data accuracy.",
-      "Developed a Python-based application with a Tkinter GUI for the marketing team to add and track quotes, integrating with Power BI to visually monitor progress and improve quote management efficiency.",
-      "Established efficiency metrics and automated Excel dashboards using VBA scripting, which boosted the productivity and efficiency of designers and CAD technicians by over 25%.",
-      "Enhanced business process efficiency and decision support by collaborating with teams to optimize data workflows and designing tailored Power BI dashboards and KPI reports, resulting in improved strategic planning across the organization."
+      "Spearheaded mobile app development for a digital asset platform with React Native, ensuring smooth UX across Android & iOS.",
+      "Integrated secure wallet systems and RESTful APIs to handle high-volume crypto transactions reliably.",
+      "Enhanced UI/UX with animations and navigation optimizations that made scrolling almost therapeutic.",
+      "Refactored core modules to improve performance and scalability — and made the dev team breathe easier.",
     ],
     skills: [
-      { name: "Python", icon: FaPython },
-      { name: "SQL", icon: FaDatabase },
-      { name: "Power BI", icon: SiPowerbi },
-      { name: "AWS", icon: FaAws },
-      { name: "Data Visualization", icon: FaChartBar },
+      { name: "React Native", icon: FaReact },
+      { name: "Node.js", icon: FaNodeJs },
+      { name: "Firebase", icon: SiFirebase },
     ],
-    logo: "/logos/ia-flow.png"
+    logo: "/logos/real-variable.jpeg",
   },
   {
-    company: "IA Flow Elements",
-    position: "CAD Designer",
-    duration: "June 2019 – March 2020",
+    company: " Globalastrix Techno Solutions Private Limited",
+    position: "Software Developer",
+    duration: "Sep 2018 – Aug 2021",
+    year: 2018,
+    description: [
+      "Developed cross-platform apps and internal tools that helped clients cut operational delays by 35%.",
+      "Built and deployed Node.js backends integrated with PostgreSQL/MongoDB, turning scattered data into organized dashboards.",
+      "Maintained and scaled codebases like a plant parent — always nurturing, pruning, and occasionally debugging at 2 AM.",
+      "Worked in agile teams delivering multiple B2B and B2C solutions from scratch to production.",
+    ],
+    skills: [
+      { name: "Node.js", icon: FaNodeJs },
+      { name: "PostgreSQL", icon: SiPostgresql },
+      { name: "MongoDB", icon: SiMongodb },
+    ],
+    logo: "/logos/freelance.png",
+  },
+  {
+    company: "Ridhan Technologies",
+    position: "Mobile App Developer Intern",
+    duration: "May 2019 – Aug 2019",
     year: 2019,
     description: [
-      "Designed flow elements according to provided specifications using RW Miller software, improving product performance in the oil & gas sector.",
-      "Managed technical quotations, effectively converting quotes to orders, demonstrating strong business communication skills.",
-      "Handled client-centric reporting and documentation, ensuring tailored solutions and high customer satisfaction."
+      "Got hands dirty with real-world React Native projects during the early mobile days.",
+      "Assisted in developing reusable components, debugging layouts, and learning why semicolons are not optional.",
+      "Contributed to UI improvements and feature testing while absorbing industry best practices like a sponge.",
     ],
     skills: [
-      { name: "CAD", icon: FaReact },
-      { name: "Technical Documentation", icon: FaChartBar },
-      { name: "Client Communication", icon: FaBriefcase },
+      { name: "React Native", icon: FaReact },
+      { name: "UI Debugging", icon: FaLaptopCode },
     ],
-    logo: "/logos/ia-flow.png"
-  }
+    logo: "/logos/ridhan.png",
+  },
 ];
