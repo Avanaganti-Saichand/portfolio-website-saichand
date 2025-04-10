@@ -29,8 +29,6 @@ This project is a responsive, single-page application that showcases my skills, 
 
 1. Clone the repository:
 
-`git clone https://github.com/krishnavalliappan/portfolio`
-
 2. Install dependencies:
 
 `cd portfolio npm install`
@@ -55,3 +53,4 @@ This project can be easily deployed on Vercel or any other platform that support
 ## License
 
 This project is open source and available under the [MIT License](LICENSE).
+# portfolio-website-saichand
