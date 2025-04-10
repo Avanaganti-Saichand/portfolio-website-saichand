@@ -37,7 +37,8 @@ export const projects: Project[] = [
       "TailwindCSS",
       "shadcn/ui",
     ],
-    githubLink: "https://github.com/krishnavalliappan/portfolio",
+    githubLink:
+      "https://github.com/Avanaganti-Saichand/portfolio-website-saichand",
     skills: [
       { name: "Frontend Development" },
       { name: "UI/UX Design" },
