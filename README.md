@@ -29,14 +29,15 @@ This project is a responsive, single-page application that showcases my skills, 
 
 1. Clone the repository:
 
-2. Install dependencies:
+git clone
+[https://github.com/Avanaganti-Saichand/portfolio-website-saichand]
 
 `cd portfolio npm install`
 
-3. Run the development server:
+1. Run the development server:
    `npm run dev`
 
-4. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 ## Customization
 
@@ -53,4 +54,5 @@ This project can be easily deployed on Vercel or any other platform that support
 ## License
 
 This project is open source and available under the [MIT License](LICENSE).
+
 # portfolio-website-saichand
