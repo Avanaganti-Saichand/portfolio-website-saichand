@@ -1,58 +1,52 @@
-import React, { useState } from 'react';
-import Image from 'next/image';
-import { motion } from 'framer-motion';
+"use client";
+import React, { useState } from "react";
+import Image from "next/image";
+import { motion } from "framer-motion";
 
 const StyledPic: React.FC = () => {
   const [isAnimating, setIsAnimating] = useState(false);
 
   const handleInteraction = () => {
     setIsAnimating(true);
-    setTimeout(() => setIsAnimating(false), 500); // Reset after 0.5 second
+    setTimeout(() => setIsAnimating(false), 500);
   };
 
   return (
-    <div 
-      className="relative max-w-[300px] md:max-w-full md:w-full aspect-square cursor-pointer"
+    <div
+      className="relative w-[220px] h-[220px] md:w-[260px] md:h-[260px] cursor-pointer"
       onClick={handleInteraction}
       onMouseEnter={handleInteraction}
     >
-      <motion.div 
-        className="wrapper relative w-full h-full rounded-lg bg-primary shadow-md overflow-hidden"
-        animate={isAnimating ? {
-          scale: [1, 1.05, 1],
-          rotate: [0, 5, -5, 0],
-        } : {}}
+      {/* Background ring animation */}
+      <motion.div
+        className="absolute inset-0 border-4 border-primary rounded-full z-0"
+        animate={
+          isAnimating ? { scale: [1, 1.05, 1], rotate: [0, 3, -3, 0] } : {}
+        }
+        transition={{ duration: 0.5 }}
+      />
+
+      {/* Image wrapper */}
+      <motion.div
+        className="relative w-full h-full rounded-full overflow-hidden bg-primary z-10"
+        animate={
+          isAnimating ? { scale: [1, 1.03, 1], rotate: [0, -2, 2, 0] } : {}
+        }
         transition={{ duration: 0.5 }}
       >
+        <Image
+          src="/pics/photo.png"
+          alt="Saichand"
+          fill
+          className="object-cover rounded-full"
+        />
+        {/* Overlay flash effect */}
         <motion.div
-          className="relative w-full h-full"
-          animate={isAnimating ? { 
-            y: [0, -10, 0],
-            opacity: [1, 0.8, 1],
-          } : {}}
-          transition={{ duration: 0.5 }}
-        >
-          <Image
-            src="/pics/photo.png"
-            alt="Profile"
-            fill
-            className="rounded-lg object-cover"
-          />
-        </motion.div>
-        <motion.div
-          className="absolute inset-0 bg-primary opacity-0"
-          animate={isAnimating ? { opacity: 0.2 } : { opacity: 0 }}
+          className="absolute inset-0 bg-primary opacity-0 rounded-full"
+          animate={{ opacity: isAnimating ? 0.2 : 0 }}
           transition={{ duration: 0.3 }}
         />
       </motion.div>
-      <motion.div
-        className="absolute -bottom-2 -right-4 w-full h-full border-2 border-primary rounded-lg"
-        animate={isAnimating ? { 
-          scale: [1, 1.1, 1],
-          rotate: [0, -3, 0],
-        } : {}}
-        transition={{ duration: 0.5 }}
-      />
     </div>
   );
 };

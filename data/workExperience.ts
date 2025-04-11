@@ -83,7 +83,7 @@ export const workExperiences: WorkExperience[] = [
   },
   {
     company: "Ridhan Technologies",
-    position: "Mobile App Developer Intern",
+    position: "Software Intern",
     duration: "May 2019 – Aug 2019",
     year: 2019,
     description: [
