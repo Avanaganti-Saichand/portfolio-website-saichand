@@ -1,4 +1,5 @@
 "use client";
+/* eslint-disable react/no-unescaped-entities */
 import React from "react";
 import { motion } from "framer-motion";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
@@ -35,25 +36,26 @@ const AboutMe: React.FC = () => {
           </CardHeader>
           <CardContent className="text-sm sm:text-base text-foreground space-y-4">
             <p>
-              Hey there 👋 I’m <strong>Saichand Avanaganti</strong> — a Mobile &
-              Full Stack Developer who speaks fluent React Native, negotiates
-              with Node.js, and occasionally argues with TypeScript (but we
-              always patch things up).
+              Hey there 👋 I&rsquo;m <strong>Saichand Avanaganti</strong> — a
+              Mobile &amp; Full Stack Developer who speaks fluent React Native,
+              negotiates with Node.js, and occasionally argues with TypeScript
+              (but we always patch things up).
             </p>
             <p>
               With 3+ years of experience building cross-platform apps and
-              scalable backend systems, I’ve crafted everything from real-time
-              chat apps to geofence-based attendance trackers. I love building
-              apps that are fast, user-friendly, and can survive a production
-              bug or two 😅.
+              scalable backend systems, I&rsquo;ve crafted everything from
+              real-time chat apps to geofence-based attendance trackers. I love
+              building apps that are fast, user-friendly, and can survive a
+              production bug or two 😅.
             </p>
             <p>
-              I’ve worked with teams at Real Variable and Bluetick IT Services
-              and currently pursuing my Master’s in Information Systems at Saint
-              Louis University. Whether it's deploying APIs or animating UI
-              transitions, I enjoy turning ideas into clean, functional code.
+              I&rsquo;ve worked with teams at Real Variable and Bluetick IT
+              Services and currently pursuing my Master&rsquo;s in Information
+              Systems at Saint Louis University. Whether it&rsquo;s deploying
+              APIs or animating UI transitions, I enjoy turning ideas into
+              clean, functional code.
             </p>
-            <p>When I’m not coding, you’ll probably find me:</p>
+            <p>When I&rsquo;m not coding, you&rsquo;ll probably find me:</p>
             <ul className="list-disc pl-5 space-y-2">
               <li>
                 <FaUtensils className="inline-block mr-2" /> Perfecting my
@@ -61,7 +63,7 @@ const AboutMe: React.FC = () => {
               </li>
               <li>
                 <FaHiking className="inline-block mr-2" /> Exploring new trails
-                and pretending I didn’t take a wrong turn
+                and pretending I didn&rsquo;t take a wrong turn
               </li>
               <li>
                 <FaPuzzlePiece className="inline-block mr-2" /> Solving bugs
@@ -69,13 +71,13 @@ const AboutMe: React.FC = () => {
               </li>
             </ul>
             <p>
-              I believe in writing code that’s easy to read, fun to maintain,
-              and built with purpose. Currently diving deeper into system
-              design, real-time communication, and building flexible UI kits for
-              better developer experience.
+              I believe in writing code that&rsquo;s easy to read, fun to
+              maintain, and built with purpose. Currently diving deeper into
+              system design, real-time communication, and building flexible UI
+              kits for better developer experience.
             </p>
             <p>
-              I'm passionate about lifelong learning and solving real-world
+              I&apos;m passionate about lifelong learning and solving real-world
               problems with tech—bonus points if the UI looks good while doing
               it!
             </p>
