@@ -15,13 +15,17 @@ import {
 const SkillsGrid = () => {
   const skills = useMemo(
     () => [
-      { icon: <FaReact />, name: "React Native" },
+      { icon: <FaReact />, name: "React" },
+
       { icon: <FaNodeJs />, name: "Node.js" },
       { icon: <FaJs />, name: "JavaScript / TypeScript" },
       { icon: <FaDatabase />, name: "PostgreSQL" },
       { icon: <FaCode />, name: "WebSockets" },
       { icon: <FaGithub />, name: "GitHub / Git" },
+
       { icon: <FaPython />, name: "Python" },
+      { icon: <FaReact />, name: "React Native" },
+
       { icon: <FaChartBar />, name: "Firebase / AWS" },
       { icon: <FaCode />, name: "Socket.IO" },
       { icon: <FaChartBar />, name: "MongoDB" },
