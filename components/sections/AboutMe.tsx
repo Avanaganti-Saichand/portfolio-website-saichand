@@ -36,50 +36,10 @@ const AboutMe: React.FC = () => {
           </CardHeader>
           <CardContent className="text-sm sm:text-base text-foreground space-y-4">
             <p>
-              Hey there 👋 I&rsquo;m <strong>Saichand Avanaganti</strong> — a
-              Mobile &amp; Full Stack Developer who speaks fluent React Native,
-              negotiates with Node.js, and occasionally argues with TypeScript
-              (but we always patch things up).
+              Software engineer with 6+ years of experience building and shipping cross-platform mobile applications and web products. Core stack is React Native for iOS and Android, alongside React.js and Next.js on the web, with Node.js and Python (FastAPI, Django) on the backend. Goes into the native layer when needed, writing bridge modules in Swift/Objective-C for iOS and Kotlin/Java for Android to handle hardware integrations like Bluetooth Low Energy, camera, and GPS that the cross-platform ecosystem does not fully cover. Has built and deployed Flutter/Dart applications and keeps up with Swift and Kotlin for native-specific work. Comfortable owning the full delivery cycle from writing features and designing APIs to setting up CI/CD pipelines and submitting to the App Store and Google Play. Recent work includes integrating LLM APIs, RAG pipelines, and vector search into mobile and web products.
             </p>
             <p>
-              With 3+ years of experience building cross-platform apps and
-              scalable backend systems, I&rsquo;ve crafted everything from
-              real-time chat apps to geofence-based attendance trackers. I love
-              building apps that are fast, user-friendly, and can survive a
-              production bug or two 😅.
-            </p>
-            <p>
-              I&rsquo;ve worked with teams at Real Variable and Bluetick IT
-              Services and currently pursuing my Master&rsquo;s in Information
-              Systems at Saint Louis University. Whether it&rsquo;s deploying
-              APIs or animating UI transitions, I enjoy turning ideas into
-              clean, functional code.
-            </p>
-            <p>When I&rsquo;m not coding, you&rsquo;ll probably find me:</p>
-            <ul className="list-disc pl-5 space-y-2">
-              <li>
-                <FaUtensils className="inline-block mr-2" /> Perfecting my
-                biryani recipe (spicy enough to wake the neighbors)
-              </li>
-              <li>
-                <FaHiking className="inline-block mr-2" /> Exploring new trails
-                and pretending I didn&rsquo;t take a wrong turn
-              </li>
-              <li>
-                <FaPuzzlePiece className="inline-block mr-2" /> Solving bugs
-                that I may or may not have introduced myself
-              </li>
-            </ul>
-            <p>
-              I believe in writing code that&rsquo;s easy to read, fun to
-              maintain, and built with purpose. Currently diving deeper into
-              system design, real-time communication, and building flexible UI
-              kits for better developer experience.
-            </p>
-            <p>
-              I&apos;m passionate about lifelong learning and solving real-world
-              problems with tech—bonus points if the UI looks good while doing
-              it!
+              <strong>Education:</strong> Master's in Information Systems from Saint Louis University (Aug 2023 – May 2025, GPA: 3.75); B.Tech in Electronics & Communication Engineering from Guru Nanak Institutions Technical Campus (Mar 2017 – Mar 2021).
             </p>
           </CardContent>
         </Card>

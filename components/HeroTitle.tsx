@@ -12,7 +12,7 @@ const HeroTitle = () => (
       Saichand Avanaganti
     </h1>
     <h2 className="text-xl md:text-2xl text-foreground">
-      Mobile & Full-Stack Developer
+      Software Engineer · React Native · Flutter · iOS & Android · React.js / Next.js · Node.js · Python · AI Integration
     </h2>
   </motion.div>
 );

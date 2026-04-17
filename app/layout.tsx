@@ -12,7 +12,7 @@ import { Analytics } from "@vercel/analytics/react";
 export const metadata: Metadata = {
   title: "Saichand Avanaganti",
   description:
-    "Portfolio of Saichand Avanaganti – Mobile & Full-Stack Developer",
+    "Software Engineer specializing in React Native, Flutter, iOS & Android, React.js / Next.js, Node.js, Python, and AI Integration",
 };
 
 const navItems = [
@@ -55,7 +55,7 @@ export default function RootLayout({
         <meta property="og:title" content="Saichand Avanaganti's Portfolio" />
         <meta
           property="og:description"
-          content="Mobile and Full-Stack Developer building high-quality cross-platform apps using React Native, Node.js, and TypeScript."
+          content="Software Engineer with 6+ years of experience building cross-platform mobile applications and web products using React Native, Flutter, React.js, Next.js, Node.js, Python, and AI Integration."
         />
         <meta property="og:url" content="https://avanasaichand.dev" />
         <meta

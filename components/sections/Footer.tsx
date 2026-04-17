@@ -24,7 +24,7 @@ const Footer: React.FC = () => {
       icon: FaInstagram,
       href: "https://www.instagram.com/saichand_avanaganti/",
     },
-    { icon: FaEnvelope, href: "mailto:saichand.avanaganti@slu.edu" },
+    { icon: FaEnvelope, href: "mailto:saichand98498@gmail.com" },
   ];
 
   return (
