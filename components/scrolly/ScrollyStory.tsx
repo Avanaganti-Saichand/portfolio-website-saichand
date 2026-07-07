@@ -48,6 +48,15 @@ export default function ScrollyStory() {
     offset: ["start start", "end end"],
   });
 
+  const [inView, setInView] = useState(true);
+  useEffect(() => {
+    const el = containerRef.current;
+    if (!el) return;
+    const io = new IntersectionObserver(([e]) => setInView(e.isIntersecting), { rootMargin: "200px" });
+    io.observe(el);
+    return () => io.disconnect();
+  }, [mode]);
+
   useEffect(() => {
     const wide = window.matchMedia("(min-width: 1024px)").matches;
     const motionOk = !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -67,6 +76,7 @@ export default function ScrollyStory() {
   const finaleOpacity = useTransform(scrollYProgress, [0.9, 0.97], [0, 1]);
   const finaleY = useTransform(scrollYProgress, [0.9, 0.97], [40, 0]);
   const railOpacity = useTransform(scrollYProgress, [0.07, 0.12, 0.82, 0.88], [0, 1, 1, 0]);
+  const useTransformScrim = useTransform(scrollYProgress, [0.88, 0.96], [0, 0.75]);
 
   if (mode === "fallback")
     return (
@@ -105,7 +115,7 @@ export default function ScrollyStory() {
       <div className="sticky top-0 h-screen overflow-hidden">
         {mode === "3d" && (
           <div className="absolute inset-0">
-            <DeviceScene progress={scrollYProgress} pointer={pointer} />
+            <DeviceScene progress={scrollYProgress} pointer={pointer} active={inView} />
           </div>
         )}
 
@@ -115,7 +125,7 @@ export default function ScrollyStory() {
         {/* HERO overlay */}
         <motion.div
           style={{ opacity: heroOpacity, y: heroY }}
-          className="pointer-events-none absolute inset-x-0 top-[16vh] z-10 text-center"
+          className="pointer-events-none absolute inset-x-0 top-[13vh] z-10 text-center"
         >
           <p className="font-mono text-sm tracking-[0.3em] text-accent">
             SENIOR SOFTWARE ENGINEER
@@ -185,7 +195,19 @@ export default function ScrollyStory() {
         {/* chapters */}
         {chapters.map((c, i) => (
           <ChapterCard key={c.id} progress={scrollYProgress} center={0.2 + i * 0.18}>
-            <div className="rounded-2xl border border-line bg-base/70 p-7 backdrop-blur-md md:p-8">
+            <div
+              className="relative overflow-hidden rounded-r-2xl p-7 md:p-8"
+              style={{
+                borderLeft: `2px solid ${c.accent}`,
+                background: "linear-gradient(95deg, rgba(7,7,13,0.96) 0%, rgba(7,7,13,0.9) 72%, rgba(7,7,13,0.55) 100%)",
+              }}
+            >
+              <span
+                aria-hidden
+                className="pointer-events-none absolute -right-2 -top-7 select-none text-[9rem] font-bold leading-none text-white/[0.045]"
+              >
+                {c.index}
+              </span>
               <p className="font-mono text-xs tracking-[0.25em]" style={{ color: c.accent }}>
                 {c.kicker}
               </p>
@@ -218,6 +240,12 @@ export default function ScrollyStory() {
           </ChapterCard>
         ))}
 
+        {/* finale scrim */}
+        <motion.div
+          style={{ opacity: useTransformScrim }}
+          className="pointer-events-none absolute inset-0 bg-base/60"
+        />
+
         {/* FINALE */}
         <motion.div
           style={{ opacity: finaleOpacity, y: finaleY }}
@@ -227,11 +255,11 @@ export default function ScrollyStory() {
           <h2 className="mt-4 text-4xl font-bold tracking-tight text-white md:text-6xl">
             I ship the <span className="text-gradient">whole stack</span>.
           </h2>
-          <div className="mx-auto mt-8 flex max-w-2xl flex-wrap items-center justify-center gap-4 px-6">
+          <div className="mx-auto mt-8 grid max-w-xl grid-cols-2 gap-3 px-6">
             {stats.map((s, i) => (
-              <div key={i} className="rounded-xl border border-line bg-base/70 px-4 py-3 backdrop-blur-md">
+              <div key={i} className="rounded-xl border border-line bg-[#0a0a12]/90 px-4 py-3 text-left">
                 <span className="text-gradient text-xl font-bold">{s.value}</span>
-                <span className="ml-2 text-xs text-gray-400">{s.label}</span>
+                <span className="mt-0.5 block text-[11px] leading-snug text-gray-400">{s.label}</span>
               </div>
             ))}
           </div>

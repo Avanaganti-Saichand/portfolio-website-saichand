@@ -179,7 +179,7 @@ function Stars() {
   const ref = useRef<THREE.Points>(null);
   const geo = useMemo(() => {
     const g = new THREE.BufferGeometry();
-    const n = 500;
+    const n = 280;
     const pos = new Float32Array(n * 3);
     for (let i = 0; i < n; i++) {
       const r = 16 + Math.random() * 26;
@@ -204,7 +204,7 @@ function Stars() {
 
 /* ---------- the device ---------- */
 const LAYER_BASE = { screen: 0.24, bridge: 0.12, native: 0, silicon: -0.12, back: -0.24 };
-const SPREAD = 9.5;
+const SPREAD = 5.4;
 
 function Device({
   progress,
@@ -247,6 +247,7 @@ function Device({
 
     const reassemble = smooth(0.84, 0.965, p);
     const explodeBase = smooth(0.09, 0.28, p) * (1 - reassemble);
+    const intro = smooth(0.05, 0.18, p);
     const weights = [
       bump(0.2, 0.11, p),
       bump(0.38, 0.11, p),
@@ -255,16 +256,26 @@ function Device({
     ];
     const focus = Math.max(...weights);
 
-    // choreography
+    // choreography: small at hero, fans out right of center, recedes at finale
     const px = pointer.current.x;
     const py = pointer.current.y;
-    g.rotation.y = -0.95 * explodeBase + 0.1 * Math.sin(t * 0.22) + px * 0.14 + p * 0.0;
-    g.rotation.x = 0.42 * explodeBase + 0.04 * Math.sin(t * 0.17) + py * 0.1;
-    g.position.x = lerp(0, 1.55, smooth(0.06, 0.2, p)) * (1 - smooth(0.86, 0.97, p));
-    g.position.y = 0.15 * Math.sin(t * 0.6) * (1 - explodeBase * 0.6) - 0.2;
+    const scale = lerp(0.58, 0.95, intro) * (1 - 0.35 * reassemble);
+    g.scale.setScalar(scale);
+    g.rotation.y =
+      -0.82 * explodeBase +
+      (0.1 - 0.05 * reassemble) * Math.sin(t * 0.22) +
+      px * 0.12 * (1 - reassemble) +
+      0.25 * reassemble;
+    g.rotation.x = 0.34 * explodeBase + 0.04 * Math.sin(t * 0.17) + py * 0.08;
+    g.position.x = lerp(0, 2.15, smooth(0.06, 0.22, p)) * (1 - smooth(0.86, 0.97, p));
+    g.position.y =
+      lerp(-1.05, -0.15, intro) +
+      0.12 * Math.sin(t * 0.6) * (1 - explodeBase * 0.6) +
+      0.85 * reassemble;
+    g.position.z = -2.2 * reassemble;
 
-    camera.position.z = 8.6 - 1.1 * focus;
-    camera.lookAt(g.position.x * 0.55, 0, 0);
+    camera.position.z = 8.6 + 1.6 * explodeBase - 0.5 * focus + 2.0 * reassemble;
+    camera.lookAt(g.position.x * 0.5, 0, 0);
 
     // layer separation (staggered cascade)
     const set = (
@@ -325,7 +336,7 @@ function Device({
 
   const packetSeeds = useMemo(
     () =>
-      Array.from({ length: 14 }, (_, i) => ({
+      Array.from({ length: 10 }, (_, i) => ({
         x: ((i * 37) % 100) / 100 * 1.5 - 0.75,
         y: (((i * 61) % 100) / 100) * 3.4 - 1.7,
       })),
@@ -333,7 +344,7 @@ function Device({
   );
 
   return (
-    <group ref={group} scale={1.12}>
+    <group ref={group}>
       {/* SCREEN */}
       <group ref={screenRef}>
         <mesh>
@@ -350,8 +361,8 @@ function Device({
         </mesh>
         <sprite
           ref={(el) => { if (el) labels.current[0] = el; }}
-          position={[2.4, 1.6, 0]}
-          scale={[1.9, 0.48, 1]}
+          position={[1.45, 1.55, 0]}
+          scale={[1.15, 0.29, 1]}
         >
           <spriteMaterial map={labelTexs[0]} transparent opacity={0} depthWrite={false} />
         </sprite>
@@ -372,15 +383,10 @@ function Device({
             metalness={0}
           />
         </mesh>
-        {/* glowing rim */}
-        <mesh>
-          <boxGeometry args={[2.04, 4.32, 0.02]} />
-          <meshBasicMaterial color="#22d3ee" transparent opacity={0.12} />
-        </mesh>
         <sprite
           ref={(el) => { if (el) labels.current[1] = el; }}
-          position={[2.5, 0.5, 0]}
-          scale={[2.1, 0.5, 1]}
+          position={[1.5, 0.45, 0]}
+          scale={[1.25, 0.3, 1]}
         >
           <spriteMaterial map={labelTexs[1]} transparent opacity={0} depthWrite={false} />
         </sprite>
@@ -401,8 +407,8 @@ function Device({
         </mesh>
         <sprite
           ref={(el) => { if (el) labels.current[2] = el; }}
-          position={[2.75, -0.5, 0]}
-          scale={[2.5, 0.52, 1]}
+          position={[1.62, -0.45, 0]}
+          scale={[1.5, 0.31, 1]}
         >
           <spriteMaterial map={labelTexs[2]} transparent opacity={0} depthWrite={false} />
         </sprite>
@@ -435,8 +441,8 @@ function Device({
         </mesh>
         <sprite
           ref={(el) => { if (el) labels.current[3] = el; }}
-          position={[2.55, -1.4, 0]}
-          scale={[2.2, 0.5, 1]}
+          position={[1.5, -1.35, 0]}
+          scale={[1.3, 0.3, 1]}
         >
           <spriteMaterial map={labelTexs[3]} transparent opacity={0} depthWrite={false} />
         </sprite>
@@ -474,15 +480,18 @@ function Device({
 export default function DeviceScene({
   progress,
   pointer,
+  active = true,
 }: {
   progress: MotionValue<number>;
   pointer: React.MutableRefObject<Pointer>;
+  active?: boolean;
 }) {
   return (
     <Canvas
       camera={{ position: [0, 0, 8.6], fov: 38 }}
-      dpr={[1, 1.75]}
-      gl={{ antialias: true, alpha: true, powerPreference: "high-performance" }}
+      dpr={[1, 1.5]}
+      frameloop={active ? "always" : "never"}
+      gl={{ antialias: true, alpha: true, powerPreference: "high-performance", stencil: false, depth: true }}
       style={{ background: "transparent" }}
     >
       <ambientLight intensity={0.5} />
