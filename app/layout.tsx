@@ -7,11 +7,7 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "Saichand Avanaganti — Senior Software Engineer",
   description:
-    "Senior software engineer specializing in full-stack mobile and web applications: React Native New Architecture, Swift/Kotlin native modules, Next.js, and AI/RAG systems.",
-  keywords: [
-    "Saichand Avanaganti", "React Native", "TurboModules", "Software Engineer",
-    "Mobile Developer", "Next.js", "AI Engineer", "Full Stack",
-  ],
+    "Senior software engineer — full-stack mobile and web: React Native New Architecture, Swift/Kotlin native modules, Next.js, and applied AI.",
   openGraph: {
     title: "Saichand Avanaganti — Senior Software Engineer",
     description:
