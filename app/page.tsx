@@ -1,26 +1,29 @@
-'use client'
-import Contact from "@/components/sections/Contact";
+import Navbar from "@/components/Navbar";
 import Hero from "@/components/sections/Hero";
-import { FloatingNav } from "@/components/ui/FloatingNavbar";
-import Image from "next/image";
-import AboutMe from "@/components/sections/AboutMe";
-import Work from "@/components/sections/Work";
-import { AnimatePresence } from 'framer-motion';
+import TechMarquee from "@/components/sections/TechMarquee";
+import About from "@/components/sections/About";
+import Experience from "@/components/sections/Experience";
+import Skills from "@/components/sections/Skills";
 import Projects from "@/components/sections/Projects";
+import Publications from "@/components/sections/Publications";
+import Education from "@/components/sections/Education";
+import Contact from "@/components/sections/Contact";
+import Footer from "@/components/sections/Footer";
 
-const Home = () => {
+export default function Home() {
   return (
-    <AnimatePresence>
-      <main className="relative flex justify-center items-center flex-col overflow-hidden mx-auto pt-16 sm:px-10 px-5">
-      <div className="max-w-7xl w-full">
-          <Hero />
-          <AboutMe />
-          <Projects/>
-          <Work />
-      </div>
+    <main className="relative min-h-screen bg-base">
+      <Navbar />
+      <Hero />
+      <TechMarquee />
+      <About />
+      <Experience />
+      <Skills />
+      <Projects />
+      <Publications />
+      <Education />
+      <Contact />
+      <Footer />
     </main>
-    </AnimatePresence>
   );
 }
-
-export default Home;

@@ -1,58 +1,27 @@
-# Personal Portfolio Website
+# Saichand Avanaganti — Portfolio
 
-This is a personal portfolio website built with Next.js, React, and Tailwind CSS.
+Personal portfolio of **Saichand Avanaganti**, Senior Software Engineer — Mobile · Web · Applied AI.
 
-## Description
+Live sections: interactive phone mockup (Mobile UI / Native Bridge / AI Backend), experience timeline, categorized skills, project case studies, published research, and contact.
 
-This project is a responsive, single-page application that showcases my skills, projects, and work experience. It features a modern design with interactive elements and smooth animations.
+## Stack
 
-## Features
+- **Next.js 14** (App Router) + TypeScript
+- **Tailwind CSS** — custom dark theme
+- **Framer Motion** — scroll reveals, 3D tilt, screen transitions
+- Single source of truth: all content lives in [`data/resume.ts`](data/resume.ts)
 
-- Responsive design
-- Interactive terminal-like component
-- Animated sections
-- Project showcase
-- Work experience timeline
-- Skills grid
-- Dark mode support
+## Run locally
 
-## Technologies Used
+```bash
+npm install
+npm run dev
+```
 
-- Next.js
-- React
-- TypeScript
-- Tailwind CSS
-- Framer Motion
-- React Icons
+## Deploy
 
-## Getting Started
+Optimized for Vercel — push to `main` and import the repo.
 
-1. Clone the repository:
+## Editing content
 
-git clone
-[https://github.com/Avanaganti-Saichand/portfolio-website-saichand]
-
-`cd portfolio npm install`
-
-1. Run the development server:
-   `npm run dev`
-
-2. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-## Customization
-
-To customize the content of the portfolio:
-
-- Edit the project data in `data/projects.ts`
-- Update work experience in `data/workExperience.ts`
-- Modify component content in the respective files under `components/`
-
-## Deployment
-
-This project can be easily deployed on Vercel or any other platform that supports Next.js applications.
-
-## License
-
-This project is open source and available under the [MIT License](LICENSE).
-
-# portfolio-website-saichand
+Everything (experience, skills, projects, publications, education, socials) is data-driven from `data/resume.ts`. Update that one file to update the site.

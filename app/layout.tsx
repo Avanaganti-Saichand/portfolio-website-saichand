@@ -1,84 +1,31 @@
-// app/layout.tsx
 import type { Metadata } from "next";
-import { inter, jetbrain_mono } from "@/app/fonts";
-import "./globals.css";
-import { ThemeProvider } from "@/app/ThemeProvider";
-import { FloatingNav } from "@/components/ui/FloatingNavbar";
-import { FaHome, FaUser, FaBriefcase, FaCode } from "react-icons/fa";
-import StickyIcons from "@/components/sections/StickyIcons";
-import Footer from "@/components/sections/Footer";
 import { Analytics } from "@vercel/analytics/react";
+import "@fontsource-variable/inter";
+import "@fontsource-variable/jetbrains-mono";
+import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Saichand Avanaganti",
+  title: "Saichand Avanaganti — Senior Software Engineer",
   description:
-    "Software Engineer specializing in React Native, Flutter, iOS & Android, React.js / Next.js, Node.js, Python, and AI Integration",
+    "Senior software engineer specializing in full-stack mobile and web applications: React Native New Architecture, Swift/Kotlin native modules, Next.js, and AI/RAG systems.",
+  keywords: [
+    "Saichand Avanaganti", "React Native", "TurboModules", "Software Engineer",
+    "Mobile Developer", "Next.js", "AI Engineer", "Full Stack",
+  ],
+  openGraph: {
+    title: "Saichand Avanaganti — Senior Software Engineer",
+    description:
+      "Full-stack mobile & web engineering: React Native, native Swift/Kotlin bridges, Next.js, and applied AI.",
+    type: "website",
+  },
 };
 
-const navItems = [
-  {
-    name: "Home",
-    link: "#home",
-    icon: <FaHome />,
-  },
-  {
-    name: "About",
-    link: "#about",
-    icon: <FaUser />,
-  },
-  {
-    name: "Projects",
-    link: "#projects",
-    icon: <FaCode />,
-  },
-  {
-    name: "Work",
-    link: "#work",
-    icon: <FaBriefcase />,
-  },
-];
-
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <head>
-        <link
-          rel="icon"
-          type="image/png"
-          sizes="32x32"
-          href="./favicon-32x32.png"
-        />
-        <meta property="og:title" content="Saichand Avanaganti's Portfolio" />
-        <meta
-          property="og:description"
-          content="Software Engineer with 6+ years of experience building cross-platform mobile applications and web products using React Native, Flutter, React.js, Next.js, Node.js, Python, and AI Integration."
-        />
-        <meta property="og:url" content="https://avanasaichand.dev" />
-        <meta
-          property="og:image"
-          content="https://avanasaichand.dev/pics/portfolio_preview.png"
-        />
-        <meta property="og:type" content="website" />
-      </head>
-      <body
-        className={`${jetbrain_mono.variable} ${inter.variable} font-mono antialiased`}
-      >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="dark"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <FloatingNav navItems={navItems} />
-          <StickyIcons />
-          {children}
-          <Footer />
-          <Analytics />
-        </ThemeProvider>
+      <body className="font-sans antialiased">
+        {children}
+        <Analytics />
       </body>
     </html>
   );
