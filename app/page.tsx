@@ -1,5 +1,5 @@
 import Navbar from "@/components/Navbar";
-import Hero from "@/components/sections/Hero";
+import ScrollyStory from "@/components/scrolly/ScrollyStory";
 import TechMarquee from "@/components/sections/TechMarquee";
 import About from "@/components/sections/About";
 import Experience from "@/components/sections/Experience";
@@ -14,7 +14,7 @@ export default function Home() {
   return (
     <main className="relative min-h-screen bg-base">
       <Navbar />
-      <Hero />
+      <ScrollyStory />
       <TechMarquee />
       <About />
       <Experience />
